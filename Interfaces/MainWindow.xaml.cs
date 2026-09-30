@@ -11,63 +11,13 @@ using System.Windows.Shapes;
 using Microsoft.Data.SqlClient;
 using MySql.Data.MySqlClient;
 
-
-namespace ProyectoBD
+namespace ProyectoBD.Interfaces
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-
-            ProbarConexionSQLServer();
-            ProbarConexionMySQL();
-
-        }
-
-        private void ProbarConexionSQLServer()
-        {
-            string cadenaConexion =
-                @"Server = localhost;
-                Database = AdquisicionesProveedores;
-                Trusted_Connection=True;
-                TrustServerCertificate=True;";
-            try
-            {
-                using (SqlConnection conexion = new SqlConnection(cadenaConexion))
-                {
-                    conexion.Open();
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al conectar a la base de datos SQL Server: {ex.Message}");
-            }
-        }
-        
-        private void ProbarConexionMySQL()
-        {
-            string cadenaConexion =
-                @"Server=localhost;
-                Port=3306;
-                Database=proveedores_externos;
-                Uid=root;
-                Pwd=Lolplayers1;";
-            try
-            {
-                using (MySqlConnection conexion = new MySqlConnection(cadenaConexion))
-                {
-                    conexion.Open();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al conectar a la base de datos MySQL: {ex.Message}");
-            }
         }
 
         private void txtNombreUsuario_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -85,14 +35,9 @@ namespace ProyectoBD
 
         private void Login(string nombreUsuario, string contrasena)
         {
-            string cadenaConexion =
-                @"Server = localhost;
-                Database = AdquisicionesProveedores;
-                Trusted_Connection=True;
-                TrustServerCertificate=True;";
             try
             {
-                using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+                using (SqlConnection conexion = Conexion.ObtenerConexionSQLServer())
                 {
                     conexion.Open();
                     string consulta = "SELECT UsuarioID, RolID FROM Usuario WHERE NombreUsuario = @NombreUsuario AND Activo = 1";
@@ -104,9 +49,35 @@ namespace ProyectoBD
                         if (resultado > 0)
                         {
                             MessageBox.Show("Inicio de sesión exitoso.");
-                            // Aquí puedes abrir la ventana principal de tu aplicación
+                            // Se abre la ventana correspondiente según el RolID del usuario
+                            if (resultado == 1)
+                            {
+                                // Se abre la ventana de Administrador del Sistema
+                                AdministradorDelSistema adminWindow = new AdministradorDelSistema();
+                                adminWindow.Show();
+                            }
+                            else if (resultado == 2)
+                            {
+                                // Se abre la ventana de Gestor de Compras
+                                GestorCompras gestorWindow = new GestorCompras();
+                                gestorWindow.Show();
+                            }
+                            else if (resultado == 3)
+                            {
+                                // Se abre la ventana de Administrador de Proveedores
+                                AdministradorProveedores adminProvWindow = new AdministradorProveedores();
+                                adminProvWindow.Show();
+                            }
+                            else if (resultado == 4)
+                            {
+                                // Se abre la ventana de Auditor
+                                Auditor auditorWindow = new Auditor();
+                                auditorWindow.Show();
+                            }
                         }
-                        else
+                        else if (resultado == 0)
+                            Close();
+                        else if (resultado != 0 && resultado >= 5)
                         {
                             MessageBox.Show("Nombre de usuario o contraseña incorrectos.");
                         }

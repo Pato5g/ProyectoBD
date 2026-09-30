@@ -1,0 +1,52 @@
+<Window x:Class="ProyectoBD.Interfaces.GestorCompras"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoBD.Interfaces"
+        mc:Ignorable="d"
+        Title="Gestor de Compras" Height="450" Width="800" Background="DarkSlateGray">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Pedidos Internos">
+                <Grid>
+                    <Label Content="Historial de Compras de Articulos" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
+                    <!-- Aquí puedes agregar los controles y elementos necesarios para la auditoría de compras -->
+                    <Label Content="Departamento" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,41,0,0"/>
+                    <ComboBox Name="cbxDepartamento" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,72,0,0" Width="170">
+                        <ComboBoxItem Content="Departamento 1"/>
+                        <ComboBoxItem Content="Departamento 2"/>
+                        <ComboBoxItem Content="Departamento 3"/>
+                    </ComboBox>
+                    <Label Content="Articulo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,104,0,0"/>
+                    <ComboBox Name="cbxArticulo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,135,0,0" Width="170">
+                        <ComboBoxItem Content="Articulo 1"/>
+                        <ComboBoxItem Content="Articulo 2"/>
+                        <ComboBoxItem Content="Articulo 3"/>
+                    </ComboBox>
+                    <Label Content="Cantidad" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,167,0,0"/>
+                    <TextBox Name="txtCantidad" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,198,0,0" Width="170"/>
+                    <Label Content="Fecha Solicitud" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,230,0,0"/>
+                    <DatePicker Name="dtpFechaSolicitud" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,261,0,0" Width="170"/>
+                    <Label Content="Fecha Necesidad" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,293,0,0"/>
+                    <DatePicker Name="dtpFechaNecesidad" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,324,0,0" Width="170"/>
+                    <Button Content="Agregar Pedido" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="61,366,0,0" Click="Button_AgregarPedido_Click"/>
+                    <Button Content="Eliminar Pedido" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="232,366,0,0" Click="Button_EliminarPedido_Click"/>
+                    <Button Content="Actualizar Pedido" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="403,366,0,0" Click="Button_ActualizarPedido_Click"/>
+                    <Button Content="Limpiar Campos" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="574,366,0,0" Click="Button_LimpiarCampos_Click"/>
+                    <DataGrid x:Name="dtgSincronizacion" AutoGenerateColumns="False" Margin="255,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="510" Height="241" SelectionChanged="dtgSincronizacion_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="PedidoID" Binding="{Binding pedidoId}" Width="*"/>
+                            <DataGridTextColumn Header="Departamento" Binding="{Binding departamento}" Width="*"/>
+                            <DataGridTextColumn Header="Articulo" Binding="{Binding articulo}" Width="*"/>
+                            <DataGridTextColumn Header="Cantidad" Binding="{Binding cantidad}" Width="*"/>
+                            <DataGridTextColumn Header="Fecha Solicitud" Binding="{Binding fecha_solicitud}" Width="*"/>
+                            <DataGridTextColumn Header="Fecha Necesidad" Binding="{Binding fecha_necesidad}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            
+        </TabControl>
+    </Grid>
+</Window>

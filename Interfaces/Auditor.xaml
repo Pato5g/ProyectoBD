@@ -1,0 +1,82 @@
+<Window x:Class="ProyectoBD.Interfaces.Auditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoBD.Interfaces"
+        mc:Ignorable="d"
+        Title="Auditor" Height="450" Width="800" Background="DarkSlateGray">
+    <TabControl>
+        <TabItem Header="Historial de Compras">
+            <Grid>
+                <Label Content="Historial de Compras de Articulos" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
+                <!-- Aquí puedes agregar los controles y elementos necesarios para la auditoría de compras -->
+                <DataGrid x:Name="dtgHistorialCompras" AutoGenerateColumns="False" Margin="10,57,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="761" Height="326" SelectionChanged="dtgSincronizacion_SelectionChanged">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Proveedor" Binding="{Binding proveedor}" Width="*"/>
+                        <DataGridTextColumn Header="Precio" Binding="{Binding precio}" Width="*"/>
+                        <DataGridTextColumn Header="Cantidad" Binding="{Binding cantidad}" Width="*"/>
+                        <DataGridTextColumn Header="Fecha" Binding="{Binding fecha}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Ranking">
+            <Grid>
+                <Label Content="FECHA INICIO / FECHA FIN" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
+                <!-- Aquí puedes agregar los controles y elementos necesarios para el ranking de proveedores -->
+                <DataGrid x:Name="dtgRanking" AutoGenerateColumns="False" Margin="29,57,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="732" Height="316" SelectionChanged="dtgSincronizacion_SelectionChanged">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Proveedor" Binding="{Binding proveedor}" Width="*"/>
+                        <DataGridTextColumn Header="Monto" Binding="{Binding monto}" Width="*"/>
+                        <DataGridTextColumn Header="Adjudicaciones" Binding="{Binding adjudicaciones}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Ofertas">
+            <Grid>
+                <Label Content="Reporte de Ofertas" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
+                <!-- Aquí puedes agregar los controles y elementos necesarios para los reportes de auditoría -->
+            </Grid>
+        </TabItem>
+        <TabItem Header="Pendientes">
+            <Grid>
+                <Label Content="Pendientes de Auditoría" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
+                <!-- Aquí puedes agregar los controles y elementos necesarios para los pendientes de auditoría -->
+            </Grid>
+        </TabItem>
+        <TabItem Header="Ordenes Activas">
+            <Grid>
+                <Label Content="Ordenes Activas" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
+                <!-- Aquí puedes agregar los controles y elementos necesarios para las órdenes activas -->
+                <DataGrid x:Name="dtgPortalExterno" AutoGenerateColumns="False" Margin="33,57,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="724" Height="313" SelectionChanged="dtgSincronizacion_SelectionChanged">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Orden" Binding="{Binding orden}" Width="*"/>
+                        <DataGridTextColumn Header="Creacion" Binding="{Binding creacion}" Width="*"/>
+                        <DataGridTextColumn Header="Fecha Limite" Binding="{Binding fecha_limite}" Width="*"/>
+                        <DataGridTextColumn Header="Dias Restantes" Binding="{Binding dias_restantes}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Gastos">
+            <Grid>
+                <Label Content="Gastos" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
+                <!-- Aquí puedes agregar los controles y elementos necesarios para las órdenes finalizadas -->
+            </Grid>
+        </TabItem>
+        <TabItem Header="Eficiencia">
+            <Grid>
+                <Label Content="Eficiencia de Proveedores" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
+                <!-- Aquí puedes agregar los controles y elementos necesarios para la eficiencia de proveedores -->
+            </Grid>
+        </TabItem>
+        <TabItem Header="Variacion">
+            <Grid>
+                <Label Content="Variación de Precios" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
+                <!-- Aquí puedes agregar los controles y elementos necesarios para la variación de precios -->
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
