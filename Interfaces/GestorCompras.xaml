@@ -5,48 +5,520 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBD.Interfaces"
         mc:Ignorable="d"
-        Title="Gestor de Compras" Height="450" Width="800" Background="DarkSlateGray">
+        Title="Gestor de Compras"
+        Height="450"
+        Width="800"
+        Background="DarkSlateGray">
+
     <Grid>
         <TabControl>
+
+            <!-- PEDIDOS INTERNOS -->
             <TabItem Header="Pedidos Internos">
                 <Grid>
-                    <Label Content="Historial de Compras de Articulos" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
-                    <!-- Aquí puedes agregar los controles y elementos necesarios para la auditoría de compras -->
-                    <Label Content="Departamento" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,41,0,0"/>
-                    <ComboBox Name="cbxDepartamento" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,72,0,0" Width="170">
-                        <ComboBoxItem Content="Departamento 1"/>
-                        <ComboBoxItem Content="Departamento 2"/>
-                        <ComboBoxItem Content="Departamento 3"/>
-                    </ComboBox>
-                    <Label Content="Articulo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,104,0,0"/>
-                    <ComboBox Name="cbxArticulo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,135,0,0" Width="170">
-                        <ComboBoxItem Content="Articulo 1"/>
-                        <ComboBoxItem Content="Articulo 2"/>
-                        <ComboBoxItem Content="Articulo 3"/>
-                    </ComboBox>
-                    <Label Content="Cantidad" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,167,0,0"/>
-                    <TextBox Name="txtCantidad" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,198,0,0" Width="170"/>
-                    <Label Content="Fecha Solicitud" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,230,0,0"/>
-                    <DatePicker Name="dtpFechaSolicitud" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,261,0,0" Width="170"/>
-                    <Label Content="Fecha Necesidad" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,293,0,0"/>
-                    <DatePicker Name="dtpFechaNecesidad" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,324,0,0" Width="170"/>
-                    <Button Content="Agregar Pedido" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="61,366,0,0" Click="Button_AgregarPedido_Click"/>
-                    <Button Content="Eliminar Pedido" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="232,366,0,0" Click="Button_EliminarPedido_Click"/>
-                    <Button Content="Actualizar Pedido" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="403,366,0,0" Click="Button_ActualizarPedido_Click"/>
-                    <Button Content="Limpiar Campos" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="574,366,0,0" Click="Button_LimpiarCampos_Click"/>
-                    <DataGrid x:Name="dtgSincronizacion" AutoGenerateColumns="False" Margin="255,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="510" Height="241" SelectionChanged="dtgSincronizacion_SelectionChanged">
+
+                    <Label Content="Historial de Compras de Articulos"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Margin="0,10,0,0"/>
+
+                    <Label Content="Departamento"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="29,41,0,0"/>
+
+                    <ComboBox Name="cbxDepartamento"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Margin="29,72,0,0"
+                              Width="170"/>
+
+                    <Label Content="Articulo"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="29,104,0,0"/>
+
+                    <ComboBox Name="cbxArticulo"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Margin="29,135,0,0"
+                              Width="170"/>
+
+                    <Label Content="Cantidad"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="29,167,0,0"/>
+
+                    <TextBox Name="txtCantidad"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Margin="29,198,0,0"
+                             Width="170"/>
+
+                    <Label Content="Fecha Solicitud"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="29,230,0,0"/>
+
+                    <DatePicker Name="dtpFechaSolicitud"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Margin="29,261,0,0"
+                                Width="170"/>
+
+                    <Label Content="Fecha Necesidad"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="29,293,0,0"/>
+
+                    <DatePicker Name="dtpFechaNecesidad"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Margin="29,324,0,0"
+                                Width="170"/>
+
+                    <Button Content="Agregar Pedido"
+                            Width="150"
+                            Height="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="61,366,0,0"
+                            Click="Button_AgregarPedido_Click"/>
+
+                    <Button Content="Eliminar Pedido"
+                            Width="150"
+                            Height="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="232,366,0,0"
+                            Click="Button_EliminarPedido_Click"/>
+
+                    <Button Content="Actualizar Pedido"
+                            Width="150"
+                            Height="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="403,366,0,0"
+                            Click="Button_ActualizarPedido_Click"/>
+
+                    <Button Content="Limpiar Campos"
+                            Width="150"
+                            Height="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="574,366,0,0"
+                            Click="Button_LimpiarCampos_Click"/>
+
+                    <DataGrid x:Name="dtgSincronizacion"
+                              AutoGenerateColumns="False"
+                              Margin="255,0,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Center"
+                              Width="510"
+                              Height="241">
+
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="PedidoID" Binding="{Binding pedidoId}" Width="*"/>
-                            <DataGridTextColumn Header="Departamento" Binding="{Binding departamento}" Width="*"/>
-                            <DataGridTextColumn Header="Articulo" Binding="{Binding articulo}" Width="*"/>
-                            <DataGridTextColumn Header="Cantidad" Binding="{Binding cantidad}" Width="*"/>
-                            <DataGridTextColumn Header="Fecha Solicitud" Binding="{Binding fecha_solicitud}" Width="*"/>
-                            <DataGridTextColumn Header="Fecha Necesidad" Binding="{Binding fecha_necesidad}" Width="*"/>
+
+                            <DataGridTextColumn Header="PedidoID"
+                                                Binding="{Binding pedidoId}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Departamento"
+                                                Binding="{Binding departamento}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Articulo"
+                                                Binding="{Binding articulo}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Cantidad"
+                                                Binding="{Binding cantidad}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Fecha Solicitud"
+                                                Binding="{Binding fecha_solicitud}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Fecha Necesidad"
+                                                Binding="{Binding fecha_necesidad}"
+                                                Width="*"/>
+
                         </DataGrid.Columns>
                     </DataGrid>
+
                 </Grid>
             </TabItem>
-            
+
+
+            <!-- ORDEN DE COMPRA -->
+            <TabItem Header="Orden de Compra">
+                <Grid>
+
+                    <Label Content="Orden de Compra"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Margin="0,10,0,0"/>
+
+                    <Label Content="Descripción"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="29,104,0,0"/>
+
+                    <TextBox Name="txtDescripcion"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Margin="29,135,0,0"
+                             Width="170"/>
+
+                    <Label Content="Fecha de Creacion"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="29,176,0,0"/>
+
+                    <DatePicker Name="dtpFechaCreacion"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Margin="29,207,0,0"
+                                Width="170"/>
+
+                    <Label Content="Fecha Límite"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="29,248,0,0"/>
+
+                    <DatePicker Name="dtpFechaLimite"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Margin="29,279,0,0"
+                                Width="170"/>
+
+                    <Label Content="Tipo"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="29,320,0,0"/>
+
+                    <ComboBox Name="cmbTipo"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Margin="29,351,0,0"
+                              Width="170"/>
+
+                    <Label Content="Subtipo"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="29,392,0,0"/>
+
+                    <ComboBox Name="cmbSubtipo"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Margin="29,423,0,0"
+                              Width="170"/>
+
+                    <DataGrid x:Name="dtgOrdenCompra"
+                              AutoGenerateColumns="False"
+                              Margin="255,0,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Center"
+                              Width="510"
+                              Height="241">
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Header="OrdenID"
+                                                Binding="{Binding ordenID}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Descripcion"
+                                                Binding="{Binding descripccion}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Fecha Creacion"
+                                                Binding="{Binding fecha_creacion}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Fecha Limite Oferta"
+                                                Binding="{Binding fecha_limite_oferta}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Tipo Orden"
+                                                Binding="{Binding tipo_orden}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Subtipo Orden"
+                                                Binding="{Binding subtipo_orden}"
+                                                Width="*"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </Grid>
+            </TabItem>
+
+
+            <!-- OFERTAS -->
+            <TabItem Header="Ofertas">
+                <Grid>
+
+                    <Label Content="Proveedores"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Margin="0,10,0,0"/>
+
+                    <Label Content="Pedido"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="29,67,0,0"/>
+
+                    <ComboBox Name="cmbPedido"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Margin="29,98,0,0"
+                              Width="170"/>
+
+                    <Label Content="Proveedor"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="29,125,0,0"/>
+
+                    <ComboBox Name="cmbProveedor"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Margin="29,156,0,0"
+                              Width="170"/>
+
+                    <Label Content="Monto"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Margin="29,0,0,0"/>
+
+                    <TextBox Name="txtMonto"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Margin="29,221,0,0"
+                             Width="170"/>
+
+                    <Label Content="Fecha de Oferta"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="29,244,0,0"/>
+
+                    <DatePicker Name="dtpFechaOferta"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Margin="29,275,0,0"
+                                Width="170"/>
+
+                    <Button Content="Registrar Oferta"
+                            Width="170"
+                            Height="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="29,328,0,0"
+                            Click="Button_RegistrarOferta_Click"/>
+
+                    <DataGrid x:Name="dtgOfertas"
+                              AutoGenerateColumns="False"
+                              Margin="255,0,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Center"
+                              Width="510"
+                              Height="241">
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Header="OfertaID"
+                                                Binding="{Binding ofertaID}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Proveedor"
+                                                Binding="{Binding proveedores}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Pedido"
+                                                Binding="{Binding pedido}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Precio Unitario"
+                                                Binding="{Binding precio_unitario}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Fecha Oferta"
+                                                Binding="{Binding fecha_oferta}"
+                                                Width="*"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </Grid>
+            </TabItem>
+
+
+            <!-- ADJUDICACIONES -->
+            <TabItem Header="Adjudicaciones">
+                <Grid>
+
+                    <Label Content="Adjudicaciones"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Margin="0,10,0,0"/>
+
+                    <Label Content="Orden"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="29,67,0,0"/>
+
+                    <ComboBox Name="cmbOrden"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Margin="29,98,0,0"
+                              Width="170"/>
+
+                    <Label Content="Fecha Resolucion"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="29,125,0,0"/>
+
+                    <DatePicker Name="dtpFechaResolucion"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Margin="29,156,0,0"
+                                Width="170"/>
+
+                    <Button Content="Registrar Adjudicacion"
+                            Width="170"
+                            Height="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="29,328,0,0"
+                            Click="Button_RegistrarAdjudicacion_Click"/>
+
+                    <DataGrid x:Name="dtgAdjudicaciones"
+                              AutoGenerateColumns="False"
+                              Margin="255,0,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Center"
+                              Width="510"
+                              Height="241">
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Header="Proveedor"
+                                                Binding="{Binding proveedor}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Cantidad"
+                                                Binding="{Binding cantidad}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Precio"
+                                                Binding="{Binding precio}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Total"
+                                                Binding="{Binding total}"
+                                                Width="*"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </Grid>
+            </TabItem>
+
+
+            <!-- CONSULTAS OPERATIVAS -->
+            <TabItem Header="Consultas Operativas">
+                <Grid>
+
+                    <Label Content="Consultas Operativas"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Margin="0,10,0,0"/>
+
+                    <Label Content="Pedidos Pendientes"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="29,67,0,0"/>
+
+                    <Label Content="Ordenes Activas"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Top"
+                           Margin="29,67,0,0"/>
+
+                    <DataGrid x:Name="dtgConsultasPedidos"
+                              AutoGenerateColumns="False"
+                              Margin="10,110,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Width="387"
+                              Height="241">
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Header="PedidoID"
+                                                Binding="{Binding pedidoID}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Departamento"
+                                                Binding="{Binding departamento}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Articulo"
+                                                Binding="{Binding articulo}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Cantidad"
+                                                Binding="{Binding cantidad}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Fecha Necesidad"
+                                                Binding="{Binding fechaNecesidad}"
+                                                Width="*"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <DataGrid x:Name="dtgOrdenesActivas"
+                              AutoGenerateColumns="False"
+                              Margin="434,110,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Width="350"
+                              Height="241">
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Header="OrdenID"
+                                                Binding="{Binding ordenID}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Descripcion"
+                                                Binding="{Binding descripcion}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Fecha Limite"
+                                                Binding="{Binding fechaLimite}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Dias Restantes"
+                                                Binding="{Binding diasRestantes}"
+                                                Width="*"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </Grid>
+            </TabItem>
+
         </TabControl>
     </Grid>
 </Window>

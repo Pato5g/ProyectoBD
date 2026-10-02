@@ -5,182 +5,790 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBD.Interfaces"
         mc:Ignorable="d"
-        Title="Administrador del Sistema" Height="450" Width="800" Background="DarkSlateGray">
+        Title="Administrador del Sistema"
+        Height="450"
+        Width="800"
+        Background="DarkSlateGray">
+
     <Grid>
         <TabControl>
+
+            <!-- ==================== SUCURSALES ==================== -->
             <TabItem Header="Sucursales">
                 <Grid>
-                    <Label Content="Gestión de Sucursales" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
-                    <!-- Aqui se agregaron controles y elementos necesarios para la gestión de sucursales -->
-                    <Label Content="ID de la Sucursal:" Margin="32,67,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <TextBox Name="txtIdSucursal" Margin="32,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" IsReadOnly="True"/>
-                    <Label Content="Codigo de la Sucursal:" Margin="188,67,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <TextBox Name="txtCodigoSucursal" Margin="188,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" IsReadOnly="True"/>
-                    <Label Content="Dirección de la Sucursal:" Margin="397,67,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <TextBox Name="txtDireccionSucursal" Margin="397,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Label Content="Departamento de la Sucursal:" Margin="169,203,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <TextBox Name="txtDepartamentoSucursal" Margin="188,225,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Label Content="Ciudad de la Sucursal:" Margin="625,67,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <TextBox Name="txtCiudadSucursal" Margin="625,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Label Content="Sucursal en Funcionamiento" Margin="387,203,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <CheckBox Name="chkSucursalFuncionando" Margin="452,226,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Button Content="Agregar Sucursal" Margin="32,300,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Button Content="Actualizar Sucursal" Margin="188,300,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Button Content="Eliminar Sucursal" Margin="344,300,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Button Content="Buscar Sucursal" Margin="500,300,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Button Content="Limpiar Campos" Margin="656,300,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
+                    <Label Content="Gestión de Sucursales"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Margin="0,10,0,0"/>
+
+                    <Label Content="ID de la Sucursal:"
+                           Margin="32,67,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+
+                    <TextBox Name="txtIdSucursal"
+                             Margin="32,90,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Width="100"
+                             IsReadOnly="True"/>
+
+                    <Label Content="Código de la Sucursal:"
+                           Margin="188,67,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+
+                    <TextBox Name="txtCodigoSucursal"
+                             Margin="188,90,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Width="125"/>
+
+                    <Label Content="Dirección de la Sucursal:"
+                           Margin="397,67,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+
+                    <TextBox Name="txtDireccionSucursal"
+                             Margin="397,90,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Width="125"/>
+
+                    <Label Content="Departamento de la Sucursal:"
+                           Margin="169,140,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+
+                    <TextBox Name="txtDepartamentoSucursal"
+                             Margin="188,162,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Width="125"/>
+
+                    <Label Content="Ciudad de la Sucursal:"
+                           Margin="625,67,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+
+                    <TextBox Name="txtCiudadSucursal"
+                             Margin="625,90,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Width="125"/>
+
+                    <Label Content="Sucursal en Funcionamiento"
+                           Margin="387,140,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+
+                    <CheckBox Name="chkSucursalFuncionando"
+                              Margin="452,163,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"/>
+
+                    <Button Content="Agregar Sucursal"
+                            Margin="20,203,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="125"
+                            Click="Button_Click"/>
+
+                    <Button Content="Actualizar Sucursal"
+                            Margin="176,203,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="125"
+                            Click="Button_Click_1"/>
+
+                    <Button Content="Eliminar Sucursal"
+                            Margin="332,203,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="125"
+                            Click="Button_Click_2"/>
+
+                    <Button Content="Buscar Sucursal"
+                            Margin="488,203,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="125"
+                            Click="Button_Click_3"/>
+
+                    <Button Content="Limpiar Campos"
+                            Margin="644,203,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="125"
+                            Click="Button_Click_4"/>
+
+                    <DataGrid x:Name="dtgSucursales"
+                              AutoGenerateColumns="False"
+                              Margin="32,246,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Width="718"
+                              Height="143"
+                              SelectionChanged="dtgSucursales_SelectionChanged">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Código"
+                                                Binding="{Binding Codigo}"
+                                                Width="*"
+                                                IsReadOnly="True"/>
+
+                            <DataGridTextColumn Header="Dirección"
+                                                Binding="{Binding Direccion}"
+                                                Width="*"
+                                                IsReadOnly="True"/>
+
+                            <DataGridTextColumn Header="Ciudad"
+                                                Binding="{Binding Ciudad}"
+                                                Width="*"
+                                                IsReadOnly="True"/>
+
+                            <DataGridTextColumn Header="Departamento"
+                                                Binding="{Binding DepartamentoGeo}"
+                                                Width="*"
+                                                IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </TabItem>
+
+
+            <!-- ==================== DEPARTAMENTOS ==================== -->
             <TabItem Header="Departamentos">
                 <Grid>
-                    <Label Content="Gestión de Departamentos" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
-                    <!-- Aqui se agregaron los controles y elementos necesarios para la gestión de departamentos -->
-                    <Label Content="Sucursal" Margin="118,95,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <TextBox Name="txtSucursalDepartamento" Margin="82,126,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Label Content="Departamento" Margin="0,95,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                    <TextBox Name="txtDepartamento" Margin="0,126,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="126"/>
-                    <Label Content="Ciudad" Margin="653,95,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <TextBox Name="txtCiudadDepartamento" Margin="614,126,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Button Content="Agregar Departamento" Margin="20,300,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Button Content="Actualizar Departamento" Margin="241,300,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Button Content="Eliminar Departamento" Margin="445,300,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Button Content="Buscar Departamento" Margin="653,300,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Articulos">
-                <Grid>
-                    <Label Content="Gestión de Artículos" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
-                    <!-- Aqui se agregaron los controles y elementos necesarios para la gestión de artículos -->
-                    <Label Content="Codigo del Artículo:" Margin="91,80,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <TextBox Name="txtCodigoArticulo" Margin="86,103,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Label Content="Nombre del Artículo:" Margin="0,80,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                    <TextBox Name="txtNombreArticulo" Margin="0,103,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="126"/>
-                    <Label Content="Descripción del Artículo:" Margin="576,80,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <TextBox Name="txtDescripcionArticulo" Margin="583,103,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Button Content="Agregar Artículo" Margin="20,300,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Button Content="Actualizar Artículo" Margin="241,300,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Button Content="Eliminar Artículo" Margin="445,300,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Button Content="Buscar Artículo" Margin="653,300,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
+                    <Label Content="Gestión de Departamentos"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Margin="0,10,0,0"/>
 
+                    <Label Content="Sucursal"
+                           Margin="93,76,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+
+                    <ComboBox Name="cmbSucursalDepartamento"
+                              Margin="57,111,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Width="125"
+                              Height="18"
+                              SelectionChanged="cmbSucursalDepartamento_SelectionChanged"/>
+
+                    <Label Content="Departamento"
+                           Margin="458,76,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+
+                    <TextBox Name="txtDepartamento"
+                             Margin="438,111,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Width="126"/>
+
+                    <Label Content="ID Departamento"
+                           Margin="253,76,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+
+                    <TextBox Name="txtDepartamentoId"
+                             Margin="244,111,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Width="126"
+                             IsReadOnly="True"/>
+
+                    <Label Content="Descripción"
+                           Margin="651,76,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+
+                    <TextBox Name="txtDescripcionDepartamento"
+                             Margin="627,111,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Width="125"/>
+
+                    <Button Content="Agregar Departamento"
+                            Margin="57,159,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="125"
+                            Click="Button_Click_5"/>
+
+                    <Button Content="Actualizar Departamento"
+                            Margin="196,159,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="125"
+                            Click="Button_Click_6"/>
+
+                    <Button Content="Eliminar Departamento"
+                            Margin="0,159,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            Width="126"
+                            Click="Button_Click_7"/>
+
+                    <Button Content="Buscar Departamento"
+                            Margin="476,159,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="135"
+                            Click="Button_Click_8"/>
+
+                    <Button Content="Limpiar Campos"
+                            Margin="627,159,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="125"
+                            Click="Button_Click_9"/>
+
+                    <DataGrid x:Name="dtgDepartamentos"
+                              AutoGenerateColumns="False"
+                              Margin="32,203,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Width="718"
+                              Height="186"
+                              SelectionChanged="dtgDepartamentos_SelectionChanged">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID"
+                                                Binding="{Binding DepartamentoID}"
+                                                Width="*"
+                                                IsReadOnly="True"/>
+
+                            <DataGridTextColumn Header="Sucursal"
+                                                Binding="{Binding Codigo}"
+                                                Width="*"
+                                                IsReadOnly="True"/>
+
+                            <DataGridTextColumn Header="Departamento"
+                                                Binding="{Binding Nombre}"
+                                                Width="*"
+                                                IsReadOnly="True"/>
+
+                            <DataGridTextColumn Header="Descripción"
+                                                Binding="{Binding Descripcion}"
+                                                Width="*"
+                                                IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </TabItem>
+
+
+            <!-- ==================== ARTÍCULOS ==================== -->
+            <TabItem Header="Artículos">
+                <Grid>
+                    <Label Content="Gestión de Artículos"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Margin="0,10,0,0"/>
+
+                    <Label Content="Código del Artículo:"
+                           Margin="91,80,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+
+                    <TextBox Name="txtCodigoArticulo"
+                             Margin="86,103,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Width="125"/>
+
+                    <Label Content="Nombre del Artículo:"
+                           Margin="0,80,0,0"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"/>
+
+                    <TextBox Name="txtNombreArticulo"
+                             Margin="0,103,0,0"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Top"
+                             Width="126"/>
+
+                    <Label Content="Descripción del Artículo:"
+                           Margin="576,80,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+
+                    <TextBox Name="txtDescripcionArticulo"
+                             Margin="583,103,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Width="125"/>
+
+                    <Button Content="Agregar Artículo"
+                            Margin="12,161,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="126"
+                            Click="Button_Click_10"/>
+
+                    <Button Content="Actualizar Artículo"
+                            Margin="234,161,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="124"
+                            Click="Button_Click_11"/>
+
+                    <Button Content="Eliminar Artículo"
+                            Margin="438,161,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="124"
+                            Click="Button_Click_12"/>
+
+                    <Button Content="Buscar Artículo"
+                            Margin="646,161,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="124"
+                            Click="Button_Click_13"/>
+
+                    <DataGrid x:Name="dtgArticulos"
+                              AutoGenerateColumns="False"
+                              Margin="12,203,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Width="718"
+                              Height="186"
+                              SelectionChanged="dtgArticulos_SelectionChanged">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Código Artículo"
+                                                Binding="{Binding Codigo}"
+                                                Width="*"
+                                                IsReadOnly="True"/>
+
+                            <DataGridTextColumn Header="Nombre Artículo"
+                                                Binding="{Binding Nombre}"
+                                                Width="*"
+                                                IsReadOnly="True"/>
+
+                            <DataGridTextColumn Header="Descripción Artículo"
+                                                Binding="{Binding Descripcion}"
+                                                Width="*"
+                                                IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+
+
+            <!-- ==================== PROVEEDORES ==================== -->
             <TabItem Header="Proveedores">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="43*"/>
                         <ColumnDefinition Width="751*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Gestión de Proveedores" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="210,15,0,0" Grid.Column="1"/>
-                    <!-- Aqui se agregaron los controles y elementos necesarios para la gestión de proveedores -->
-                    <Label Content="NIT del Proveedor:" Margin="7,65,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
-                    <TextBox Name="txtNITProveedor" Margin="7,97,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Grid.Column="1"/>
-                    <Label Content="Nombre Comercial:" Margin="7,134,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
-                    <TextBox Name="txtNombreComercial" Margin="7,165,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Grid.Column="1"/>
-                    <Label Content="Dirección:" Margin="8,198,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
-                    <TextBox Name="txtDireccionProveedor" Margin="8,229,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="126" Grid.Column="1"/>
-                    <Label Content="Teléfono:" Margin="7,272,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
-                    <TextBox Name="txtTelefonoProveedor" Margin="7,303,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Grid.Column="1"/>
-                    <Label Content="Proveedor Activo:" Margin="7,353,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
-                    <CheckBox Name="chkProveedorActivo" Margin="118,358,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
-                    <Label Content="Rubros:" Margin="227,65,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
-                    <ComboBox Name="cmbRubros" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="189,97,0,0" Width="125" SelectionChanged="cmbRubros_SelectionChanged" Grid.Column="1" Height="18">
-                        <ComboBoxItem Content="Papeleria"/>
-                        <ComboBoxItem Content="Tecnologia"/>
-                        <ComboBoxItem Content="Mobiliario"/>
-                        <ComboBoxItem Content="Limpieza"/>
-                        <ComboBoxItem Content="Alimentos"/>
-                        <ComboBoxItem Content="Ferreteria"/>
-                    </ComboBox>
-                    <Label Content="Productos:" Margin="421,65,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
-                    <ComboBox Name="cmbProductos" Margin="392,97,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" SelectionChanged="cmbProductos_SelectionChanged" Grid.Column="1" Height="18">
-                        <ComboBoxItem Content="Ventas"/>
-                        <ComboBoxItem Content="Contabilidad"/>
-                        <ComboBoxItem Content="TI"/>
-                        <ComboBoxItem Content="Contabilidad"/>
-                        <ComboBoxItem Content="Logistica"/>
-                    </ComboBox>
-                    <Label Content="Precio Referencial:" Margin="301,267,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
-                    <TextBox Name="txtPrecioReferencial" Margin="301,303,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Grid.Column="1"/>
-                    <Button Content="Agregar Proveedor" Margin="583,97,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Grid.Column="1" Height="18"/>
-                    <Button Content="Actualizar Proveedor" Margin="583,167,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Grid.Column="1"/>
-                    <Button Content="Eliminar Proveedor" Margin="583,248,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Grid.Column="1"/>
-                    <Button Content="Buscar Proveedor" Margin="583,324,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Grid.Column="1"/>
+
+                    <Label Content="Gestión de Proveedores"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="210,15,0,0"
+                           Grid.Column="1"/>
+
+                    <Label Content="NIT del Proveedor:"
+                           Margin="7,65,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Grid.Column="1"/>
+
+                    <TextBox Name="txtNITProveedor"
+                             Margin="7,97,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Width="125"
+                             Grid.Column="1"/>
+
+                    <Label Content="Nombre Comercial:"
+                           Margin="7,134,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Grid.Column="1"/>
+
+                    <TextBox Name="txtNombreComercial"
+                             Margin="7,165,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Width="125"
+                             Grid.Column="1"/>
+
+                    <Label Content="Dirección:"
+                           Margin="8,198,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Grid.Column="1"/>
+
+                    <TextBox Name="txtDireccionProveedor"
+                             Margin="8,229,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Width="126"
+                             Grid.Column="1"/>
+
+                    <Label Content="Teléfono:"
+                           Margin="7,272,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Grid.Column="1"/>
+
+                    <TextBox Name="txtTelefonoProveedor"
+                             Margin="7,303,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Width="125"
+                             Grid.Column="1"/>
+
+                    <Label Content="Proveedor Activo:"
+                           Margin="7,353,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Grid.Column="1"/>
+
+                    <CheckBox Name="chkProveedorActivo"
+                              Margin="118,358,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Grid.Column="1"/>
+
+                    <Label Content="Rubros"
+                           Margin="194,65,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Grid.Column="1"/>
+
+                    <ComboBox Name="cmbRubros"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Margin="156,97,0,0"
+                              Width="125"
+                              Height="18"
+                              SelectionChanged="cmbRubros_SelectionChanged"
+                              Grid.Column="1"/>
+
+                    <Label Content="Artículos"
+                           Margin="335,65,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Grid.Column="1"/>
+
+                    <ComboBox Name="cmbArticulos"
+                              Margin="301,97,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Width="125"
+                              Height="18"
+                              SelectionChanged="cmbArticulos_SelectionChanged"
+                              Grid.Column="1"/>
+
+                    <Label Content="Precio Referencial:"
+                           Margin="452,65,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Grid.Column="1"/>
+
+                    <TextBox Name="txtPrecioReferencial"
+                             Margin="443,97,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Width="125"
+                             Grid.Column="1"/>
+
+                    <Button Content="Agregar Proveedor"
+                            Margin="583,97,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="125"
+                            Height="18"
+                            Grid.Column="1"
+                            Click="Button_Click_14"/>
+
+                    <Button Content="Actualizar Proveedor"
+                            Margin="583,167,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="125"
+                            Grid.Column="1"
+                            Click="Button_Click_15"/>
+
+                    <Button Content="Eliminar Proveedor"
+                            Margin="583,248,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="125"
+                            Grid.Column="1"
+                            Click="Button_Click_16"/>
+
+                    <Button Content="Buscar Proveedor"
+                            Margin="583,324,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="125"
+                            Grid.Column="1"
+                            Click="Button_Click_17"/>
                 </Grid>
             </TabItem>
+
+
+            <!-- ==================== USUARIOS ==================== -->
             <TabItem Header="Usuarios">
                 <Grid>
-                    <Label Content="Gestión de Usuarios" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
-                    <!-- Aqui se agregaron los controles y elementos necesarios para la gestión de usuarios -->
-                    <Label Content="Nombre de Usuario:" Margin="34,79,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <TextBox Name="txtNombreUsuario" Margin="30,110,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Label Content="Rol:" Margin="213,81,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <ComboBox Name="cmbRol" Margin="213,112,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Label Content="Proveedor:" Margin="399,81,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <ComboBox Name="cmbProveedor" Margin="389,112,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" SelectionChanged="cmbProveedor_SelectionChanged" Grid.Column="1" Height="18">
-                        <ComboBoxItem Content="Proveedor Comercial A1"/>
-                        <ComboBoxItem Content="Proveedor Comercial B2"/>
-                        <ComboBoxItem Content="Proveedor Comercial C3"/>
-                        <ComboBoxItem Content="Proveedor Comercial D4"/>
-                        <ComboBoxItem Content="Proveedor Comercial E5"/>
-                        <ComboBoxItem Content="Proveedor Comercial F6"/>
-                        <ComboBoxItem Content="Proveedor Comercial G7"/>
-                        <ComboBoxItem Content="Proveedor Comercial H8"/>
-                        <ComboBoxItem Content="Proveedor Comercial I9"/>
-                        <ComboBoxItem Content="Proveedor Comercial J10"/>
-                        <ComboBoxItem Content="Proveedor Comercial K11"/>
-                        <ComboBoxItem Content="Proveedor Comercial L12"/>
-                        <ComboBoxItem Content="Proveedor Comercial M13"/>
-                        <ComboBoxItem Content="Proveedor Comercial N14"/>
-                        <ComboBoxItem Content="Proveedor Comercial O15"/>
-                        <ComboBoxItem Content="Proveedor Comercial P16"/>
-                        <ComboBoxItem Content="Proveedor Comercial Q17"/>
-                        <ComboBoxItem Content="Proveedor Comercial R18"/>
-                        <ComboBoxItem Content="Proveedor Comercial S19"/>
-                        <ComboBoxItem Content="Proveedor Comercial T20"/>
-                    </ComboBox>
-                    <Label Content="Usuario Activo:" Margin="555,108,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <CheckBox Name="chkUsuarioActivo" Margin="644,113,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Button Content="Agregar Usuario" Margin="34,305,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Button Content="Actualizar Usuario" Margin="213,305,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Button Content="Eliminar Usuario" Margin="389,305,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Button Content="Buscar Usuario" Margin="555,305,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
+                    <Label Content="Gestión de Usuarios"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Margin="0,10,0,0"/>
+
+                    <Label Content="Nombre de Usuario:"
+                           Margin="34,79,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+
+                    <TextBox Name="txtNombreUsuario"
+                             Margin="30,110,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Width="125"/>
+
+                    <Label Content="Contraseña:"
+                           Margin="205,76,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+
+                    <PasswordBox Name="txtContraseñaUsuario"
+                                 Margin="179,110,0,0"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Top"
+                                 Width="125"/>
+
+                    <Label Content="Rol:"
+                           Margin="375,78,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+
+                    <ComboBox Name="cmbRol"
+                              Margin="327,110,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Width="125"
+                              Height="18"
+                              SelectionChanged="cmbRol_SelectionChanged"/>
+
+                    <Label Content="Proveedor:"
+                           Margin="521,81,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+
+                    <ComboBox Name="cmbProveedor"
+                              Margin="492,109,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Width="126"
+                              Height="18"/>
+
+                    <Label Content="Usuario Activo:"
+                           Margin="654,79,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+
+                    <CheckBox Name="chkUsuarioActivo"
+                              Margin="691,110,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Width="16"/>
+
+                    <Button Content="Agregar Usuario"
+                            Margin="116,235,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="125"
+                            Click="Button_Click_18"/>
+
+                    <Button Content="Actualizar Usuario"
+                            Margin="266,235,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="124"
+                            Click="Button_Click_19"/>
+
+                    <Button Content="Eliminar Usuario"
+                            Margin="412,235,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="125"
+                            Click="Button_Click_20"/>
+
+                    <Button Content="Buscar Usuario"
+                            Margin="555,235,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="125"
+                            Click="Button_Click_21"/>
                 </Grid>
             </TabItem>
+
+
+            <!-- ==================== ROLES Y PERMISOS ==================== -->
             <TabItem Header="Roles y Permisos">
                 <Grid>
-                    <Label Content="Gestión de Roles y Permisos" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
-                    <!-- Aqui se agregaron los controles y elementos necesarios para la gestión de roles y permisos -->
-                    <Label Content="Nombre del Rol:" Margin="34,79,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <TextBox Name="txtNombreRol" Margin="30,110,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
-                    <Label Content="Permisos:" Margin="34,150,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <ListBox Name="lstPermisos" Margin="30,176,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="18"/>
-                    <DataGrid Name="dtgCargarPantallas" AutoGenerateColumns="False" Margin="0,74,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="346" Height="200" SelectionChanged="dataGridPantalla_SelectionChanged">
+                    <Label Content="Gestión de Roles y Permisos"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="34,14,0,0"/>
+
+                    <Label Content="Nombre del Rol:"
+                           Margin="48,120,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"/>
+
+                    <TextBox Name="txtNombreRol"
+                             Margin="34,151,0,0"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Width="125"/>
+
+                    <DataGrid Name="dtgCargarPantallas"
+                              AutoGenerateColumns="False"
+                              Margin="235,61,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Width="509"
+                              Height="264"
+                              SelectionChanged="dataGridPantalla_SelectionChanged">
+
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Nombre de Departamento" Binding="{Binding NombreDepto}" Width="*"/>
-                            <DataGridTextColumn Header="Modulo" Binding="{Binding Modulo}" Width="*"/>
+                            <DataGridTextColumn Header="Pantalla"
+                                                Binding="{Binding pantalla}"
+                                                Width="*"
+                                                IsReadOnly="True"/>
+
+                            <DataGridTextColumn Header="Módulo"
+                                                Binding="{Binding modulo}"
+                                                Width="*"
+                                                IsReadOnly="True"/>
+
+                            <DataGridCheckBoxColumn Header="Crear"
+                                                    Binding="{Binding crear}"
+                                                    Width="*"/>
+
+                            <DataGridCheckBoxColumn Header="Leer"
+                                                    Binding="{Binding leer}"
+                                                    Width="*"/>
+
+                            <DataGridCheckBoxColumn Header="Actualizar"
+                                                    Binding="{Binding actualizar}"
+                                                    Width="*"/>
+
+                            <DataGridCheckBoxColumn Header="Eliminar"
+                                                    Binding="{Binding eliminar}"
+                                                    Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
+
+                    <Button Content="Agregar Rol"
+                            Margin="34,245,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="125"
+                            Click="Button_Click_22"/>
+
+                    <Button Content="Actualizar Rol"
+                            Margin="34,305,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="124"
+                            Click="Button_Click_23"/>
+
+                    <Button Content="Eliminar Rol"
+                            Margin="235,360,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="125"
+                            Click="Button_Click_24"/>
+
+                    <Button Content="Buscar Rol"
+                            Margin="427,355,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="125"
+                            Click="Button_Click_25"/>
+
+                    <Button Content="Guardar Permisos"
+                            Margin="619,355,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="125"
+                            Click="Button_Click_26"/>
                 </Grid>
             </TabItem>
+
+
+            <!-- ==================== SINCRONIZACIÓN ==================== -->
             <TabItem Header="Sincronización">
                 <Grid>
-                    <Label Content="Sincronización de Datos" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
-                    <!-- Aqui se agregaron los controles y elementos necesarios para la sincronización de datos -->
-                    <DataGrid Name="dtgSincronizacion" AutoGenerateColumns="False" Margin="0,57,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="737" Height="241" SelectionChanged="dtgSincronizacion_SelectionChanged">
+                    <Label Content="Sincronización de Datos"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Margin="0,10,0,0"/>
+
+                    <DataGrid Name="dtgSincronizacion"
+                              AutoGenerateColumns="False"
+                              Margin="0,57,0,0"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Top"
+                              Width="737"
+                              Height="241"
+                              IsReadOnly="True">
+
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="SQL" Binding="{Binding NSQL}" Width="*"/>
-                            <DataGridTextColumn Header="MySQL" Binding="{Binding NMySQL}" Width="*"/>
+                            <DataGridTextColumn Header="NIT"
+                                                Binding="{Binding nit}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Proveedor"
+                                                Binding="{Binding nombre_comercial}"
+                                                Width="2*"/>
+
+                            <DataGridTextColumn Header="Fecha"
+                                                Binding="{Binding fecha_registro, StringFormat={}{0:dd/MM/yyyy}}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Estado"
+                                                Binding="{Binding estado}"
+                                                Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button Content="Sincronizar" Margin="0,320,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="125"/>
+
+                    <Button Content="Sincronizar"
+                            Margin="0,320,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            Width="125"
+                            Click="Button_Click_27"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Reportes">
-                <Grid>
-                    <Label Content="Generación de Reportes" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
-                    <!-- Aqui se agregaron los controles y elementos necesarios para la generación de reportes -->
-                </Grid>
-            </TabItem>
+
         </TabControl>
     </Grid>
 </Window>

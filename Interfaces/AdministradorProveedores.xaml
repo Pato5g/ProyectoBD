@@ -18,7 +18,7 @@
                     <Label Content="Nombre del Proveedor:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,60,0,0"/>
                     <TextBox Name="txtNombreProveedor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,60,0,0" Width="200"/>
                     <Label Content="Nit:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,100,0,0"/>
-                    <TextBox Name="txtNitProveedor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,100,0,0" Width="200"/>
+                    <TextBox Name="txtNIT" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,100,0,0" Width="200"/>
                     <Label Content="Dirección:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,140,0,0"/>
                     <TextBox Name="txtDireccionProveedor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,140,0,0" Width="200"/>
                     <Label Content="Teléfono:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,180,0,0"/>
