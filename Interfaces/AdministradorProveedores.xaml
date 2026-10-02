@@ -5,121 +5,440 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBD.Interfaces"
         mc:Ignorable="d"
-        Title="Administrador de Proveedores" Height="450" Width="800" Background="DarkSlateGray">
+        Title="Administrador de Proveedores"
+        Height="450"
+        Width="800"
+        Background="DarkSlateGray">
+
     <Grid>
-        <Label Content="Panel de Proveedores" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
-        <!-- Aquí se agregan los controles y elementos necesarios para la interfaz del Administrador de Proveedores -->
-        <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,60,10,10">
+
+        <Label Content="Panel de Proveedores"
+               FontSize="24"
+               FontWeight="Bold"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top"
+               Margin="0,10,0,0"/>
+
+        <TabControl HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Margin="10,60,10,10">
+
+            <!-- PERFIL DEL PROVEEDOR -->
             <TabItem Header="Perfil de Proveedor">
-                <!-- Contenido de la pestaña Proveedores -->
                 <Grid>
-                    <Label Content="Perfil de Proveedor" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
-                    <!-- Se agrega la informacion de los proveedores -->
-                    <Label Content="Nombre del Proveedor:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,60,0,0"/>
-                    <TextBox Name="txtNombreProveedor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,60,0,0" Width="200"/>
-                    <Label Content="Nit:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,100,0,0"/>
-                    <TextBox Name="txtNIT" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,100,0,0" Width="200"/>
-                    <Label Content="Dirección:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,140,0,0"/>
-                    <TextBox Name="txtDireccionProveedor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,140,0,0" Width="200"/>
-                    <Label Content="Teléfono:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,180,0,0"/>
-                    <TextBox Name="txtTelefonoProveedor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,180,0,0" Width="200"/>
-                    <Label Content="Correo Electrónico:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,220,0,0"/>
-                    <TextBox Name="txtCorreoProveedor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,220,0,0" Width="200"/>
-                    <Label Content="Estado:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,260,0,0"/>
-                    <ComboBox Name="cbxEstadoProveedor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,260,0,0" Width="200">
+
+                    <Label Content="Perfil de Proveedor"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Margin="0,10,0,0"/>
+
+                    <Label Content="Nombre del Proveedor:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="50,60,0,0"/>
+
+                    <TextBox Name="txtNombreProveedor"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Margin="200,60,0,0"
+                             Width="200"/>
+
+                    <Label Content="NIT:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="50,100,0,0"/>
+
+                    <TextBox Name="txtNIT"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Margin="200,100,0,0"
+                             Width="200"/>
+
+                    <Label Content="Dirección:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="50,140,0,0"/>
+
+                    <TextBox Name="txtDireccionProveedor"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Margin="200,140,0,0"
+                             Width="200"/>
+
+                    <Label Content="Teléfono:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="50,180,0,0"/>
+
+                    <TextBox Name="txtTelefonoProveedor"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Margin="200,180,0,0"
+                             Width="200"/>
+
+                    <Label Content="Estado:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="50,225,0,0"/>
+
+                    <ComboBox Name="cbxEstadoProveedor"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Margin="200,227,0,0"
+                              Width="200"
+                              IsEnabled="False">
+
                         <ComboBoxItem Content="Activo"/>
                         <ComboBoxItem Content="Inactivo"/>
+
                     </ComboBox>
-                    <Button Content="Actualizar Datos" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="554,93,0,0"/>
-                    <Button Content="Darse de Baja" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="554,180,0,0"/>
+
+                    <Button Content="Actualizar Datos"
+                            Width="150"
+                            Height="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="554,93,0,0"
+                            Click="Button_ActualizarProveedor_Click"/>
+
+                    <Button Content="Darse de Baja"
+                            Width="150"
+                            Height="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="554,180,0,0"
+                            Click="Button_DarseDeBaja_Click"/>
+
                 </Grid>
             </TabItem>
+
+
+            <!-- GESTIÓN DE ARTÍCULOS -->
             <TabItem Header="Gestion Articulos">
-                <!-- Contenido de la pestaña Articulos -->
                 <Grid>
-                    <Label Content="Gestión de Articulos" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
-                    <!-- Agregar controles para gestionar productos -->
-                    <Label Content="Proveedor Articulos" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="13,30,0,0"/>
-                    <TextBox Name="txtProveedorArticulos" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,61,0,0" Width="200"/>
-                    <Label Content="Nombre del Articulo:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="13,84,0,0"/>
-                    <TextBox Name="txtNombreArticulo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,115,0,0" Width="200"/>
-                    <DataGrid x:Name="dtgSincronizacion" AutoGenerateColumns="False" Margin="255,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="510" Height="241" SelectionChanged="dtgSincronizacion_SelectionChanged">
+
+                    <Label Content="Gestión de Articulos"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Margin="0,10,0,0"/>
+
+                    <Label Content="Proveedor:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="13,30,0,0"/>
+
+                    <TextBox Name="txtProveedorArticulos"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Margin="10,61,0,0"
+                             Width="200"
+                             IsReadOnly="True"/>
+
+                    <Label Content="Nombre del Articulo:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="13,84,0,0"/>
+
+                    <TextBox Name="txtNombreArticulo"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Margin="10,115,0,0"
+                             Width="200"/>
+
+                    <Label Content="Precio Referencia:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="13,140,0,0"/>
+
+                    <TextBox Name="txtPrecioReferencia"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Margin="10,165,0,0"
+                             Width="200"/>
+
+                    <DataGrid x:Name="dtgArticulos"
+                              AutoGenerateColumns="False"
+                              Margin="255,0,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Center"
+                              Width="510"
+                              Height="241"
+                              IsReadOnly="True"
+                              SelectionMode="Single"
+                              SelectionChanged="dtgArticulos_SelectionChanged">
+
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Codigo" Binding="{Binding codigo}" Width="*"/>
-                            <DataGridTextColumn Header="Articulo" Binding="{Binding articulo}" Width="*"/>
-                            <DataGridTextColumn Header="Precio Referencia" Binding="{Binding precio}" Width="*"/>
+
+                            <DataGridTextColumn Header="Codigo"
+                                                Binding="{Binding codigo}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Articulo"
+                                                Binding="{Binding articulo}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Precio Referencia"
+                                                Binding="{Binding precio}"
+                                                Width="*"/>
+
                         </DataGrid.Columns>
+
                     </DataGrid>
-                    <Button Content="Agregar Articulo" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,168,0,0"/>
-                    <Button Content="Modificar Articulo" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,217,0,0" Click="Button_Click"/>
-                    <Button Content="Eliminar Articulo" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,269,0,0"/>
+
+                    <Button Content="Agregar Articulo"
+                            Width="150"
+                            Height="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="35,205,0,0"
+                            Click="Button_AgregarArticulo_Click"/>
+
+                    <Button Content="Modificar Articulo"
+                            Width="150"
+                            Height="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="35,247,0,0"
+                            Click="Button_ModificarArticulo_Click"/>
+
+                    <Button Content="Eliminar Articulo"
+                            Width="150"
+                            Height="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="35,289,0,0"
+                            Click="Button_EliminarArticulo_Click"/>
+
                 </Grid>
             </TabItem>
+
+
+            <!-- GESTIÓN DE OFERTAS -->
             <TabItem Header="Gestion Ofertas">
-                <!-- Contenido de la pestaña Ofertas -->
                 <Grid>
-                    <Label Content="Gestión de Ofertas" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
-                    <!-- Agregar controles para gestionar ofertas -->
-                    <Label Content="Ofertas del Proveedor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="13,30,0,0"/>
-                    <TextBox Name="txtProveedorOfertas" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,61,0,0" Width="200"/>
-                    <DataGrid x:Name="dtgOfertas" AutoGenerateColumns="False" Margin="255,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="510" Height="241" SelectionChanged="dtgSincronizacion_SelectionChanged">
+
+                    <Label Content="Gestión de Ofertas"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Margin="0,10,0,0"/>
+
+                    <Label Content="Proveedor:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="13,30,0,0"/>
+
+                    <TextBox Name="txtProveedorOfertas"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Margin="10,61,0,0"
+                             Width="200"
+                             IsReadOnly="True"/>
+
+                    <Label Content="Pedido:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="13,84,0,0"/>
+
+                    <ComboBox Name="cmbPedidoOferta"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Margin="10,110,0,0"
+                              Width="200"/>
+
+                    <Label Content="Precio Unitario:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="13,137,0,0"/>
+
+                    <TextBox Name="txtPrecioOferta"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Margin="10,163,0,0"
+                             Width="200"/>
+
+                    <DataGrid x:Name="dtgOfertas"
+                              AutoGenerateColumns="False"
+                              Margin="255,0,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Center"
+                              Width="510"
+                              Height="241"
+                              IsReadOnly="True"
+                              SelectionMode="Single"
+                              SelectionChanged="dtgOfertas_SelectionChanged">
+
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Pedido" Binding="{Binding pedido}" Width="*"/>
-                            <DataGridTextColumn Header="Articulo" Binding="{Binding articulo}" Width="*"/>
-                            <DataGridTextColumn Header="Precio Unitario" Binding="{Binding precioU}" Width="*"/>
-                            <DataGridTextColumn Header="Fecha Oferta" Binding="{Binding fechaO}" Width="*"/>
+
+                            <DataGridTextColumn Header="Pedido"
+                                                Binding="{Binding pedido}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Articulo"
+                                                Binding="{Binding articulo}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Precio Unitario"
+                                                Binding="{Binding precioU}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Fecha Oferta"
+                                                Binding="{Binding fechaO}"
+                                                Width="*"/>
+
                         </DataGrid.Columns>
+
                     </DataGrid>
-                    <Button Content="Agregar Oferta" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,109,0,0"/>
-                    <Button Content="Modificar Oferta" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,185,0,0" Click="Button_Click"/>
-                    <Button Content="Eliminar Oferta" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,259,0,0"/>
+
+                    <Button Content="Agregar Oferta"
+                            Width="150"
+                            Height="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="35,205,0,0"
+                            Click="Button_AgregarOferta_Click"/>
+
+                    <Button Content="Modificar Oferta"
+                            Width="150"
+                            Height="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="35,247,0,0"
+                            Click="Button_ModificarOferta_Click"/>
+
+                    <Button Content="Eliminar Oferta"
+                            Width="150"
+                            Height="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="35,289,0,0"
+                            Click="Button_EliminarOferta_Click"/>
+
                 </Grid>
             </TabItem>
+
+
+            <!-- PORTAL EXTERNO -->
             <TabItem Header="Portal Externo">
-                <!-- Contenido de la pestaña Pedidos -->
-                <Grid>
-                    <Label Content="Portal Externo" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
-                    <!-- Agregar controles para gestionar pedidos -->
-                    <Label Content="Proveedor Externo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="13,30,0,0"/>
-                    <TextBox Name="txtProveedorExterno" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="13,61,0,0" Width="200"/>
-                    <Label Content="Articulo Externo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="13,84,0,0"/>
-                    <TextBox Name="txtArticuloExterno" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="13,110,0,0" Width="200"/>
-                    <Label Content="Proveedor Externo Articulo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="13,142,0,0"/>
-                    <TextBox Name="txtProveedorExternoArticulo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="13,173,0,0" Width="200"/>
-                    <DataGrid x:Name="dtgPortalExterno" AutoGenerateColumns="False" Margin="255,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="510" Height="241" SelectionChanged="dtgSincronizacion_SelectionChanged">
+                <Grid Background="DarkSlateGray">
+                    <DataGrid x:Name="dtgPortalExterno"
+                  Margin="20"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  SelectionMode="Single">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="NIT" Binding="{Binding nit}" Width="*"/>
-                            <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" Width="*"/>
-                            <DataGridTextColumn Header="Correo" Binding="{Binding correo}" Width="*"/>
+                            <DataGridTextColumn Header="Proveedor" Binding="{Binding nombre}" Width="2*"/>
+                            <DataGridTextColumn Header="Artículo" Binding="{Binding articulo}" Width="2*"/>
+                            <DataGridTextColumn Header="Precio" Binding="{Binding precio}" Width="*"/>
+                            <DataGridTextColumn Header="Actualizado" Binding="{Binding fecha}" Width="*"/>
                             <DataGridTextColumn Header="Sincronizado" Binding="{Binding sincronizado}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button Content="Agregar Oferta" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,206,0,0"/>
-                    <Button Content="Modificar Oferta" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,248,0,0" Click="Button_Click"/>
-                    <Button Content="Eliminar Oferta" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,289,0,0"/>
                 </Grid>
             </TabItem>
+
+
+            <!-- SINCRONIZACIÓN -->
             <TabItem Header="Sincronizacion">
-                <!-- Contenido de la pestaña Sincronizacion -->
                 <Grid>
-                    <Label Content="Sincronización de Datos" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
-                    <!-- Agregar controles para gestionar sincronización -->
-                    <DataGrid Name="dtgSincronizacionProv" AutoGenerateColumns="False" Margin="0,57,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="738" Height="212" SelectionChanged="dtgSincronizacion_SelectionChanged">
+
+                    <Label Content="Sincronización de Datos"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Margin="0,10,0,0"/>
+
+                    <DataGrid Name="dtgSincronizacionProv"
+                              AutoGenerateColumns="False"
+                              Margin="0,57,0,0"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Top"
+                              Width="738"
+                              Height="212"
+                              IsReadOnly="True"
+                              SelectionMode="Single">
+
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="SQL" Binding="{Binding NSQL}" Width="*"/>
-                            <DataGridTextColumn Header="MySQL" Binding="{Binding NMySQL}" Width="*"/>
+
+                            <DataGridTextColumn Header="SQL Server"
+                                                Binding="{Binding NSQL}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="MySQL"
+                                                Binding="{Binding NMySQL}"
+                                                Width="*"/>
+
                         </DataGrid.Columns>
+
                     </DataGrid>
-                    <Button Content="Sincronizar" Margin="0,290,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="126"/>
+
+                    <Button Content="Sincronizar"
+                            Margin="0,290,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            Width="126"
+                            Height="30"
+                            Click="Button_Sincronizar_Click"/>
+
                 </Grid>
             </TabItem>
+
+
+            <!-- REPORTES -->
             <TabItem Header="Reportes">
-                <!-- Contenido de la pestaña Reportes -->
                 <Grid>
-                    <Label Content="Reportes de Proveedores" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
-                    <!-- Agregar controles para generar reportes -->
+
+                    <Label Content="Reportes de Proveedores"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Margin="0,10,0,0"/>
+
+                    <Button Content="Articulos del Proveedor"
+                            Width="180"
+                            Height="35"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="100,90,0,0"
+                            Click="Button_ReporteArticulos_Click"/>
+
+                    <Button Content="Ofertas Realizadas"
+                            Width="180"
+                            Height="35"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="300,90,0,0"
+                            Click="Button_ReporteOfertas_Click"/>
+
+                    <Button Content="Estado de Sincronizacion"
+                            Width="180"
+                            Height="35"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="500,90,0,0"
+                            Click="Button_ReporteSincronizacion_Click"/>
+
+                    <DataGrid Name="dtgReportes"
+                              AutoGenerateColumns="True"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Top"
+                              Margin="0,150,0,0"
+                              Width="650"
+                              Height="170"
+                              IsReadOnly="True"/>
+
                 </Grid>
             </TabItem>
+
         </TabControl>
+
     </Grid>
 </Window>

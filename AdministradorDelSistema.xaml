@@ -83,7 +83,7 @@
                     <Label Content="Proveedor Activo:" Margin="7,353,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
                     <CheckBox Name="chkProveedorActivo" Margin="118,358,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
                     <Label Content="Rubros:" Margin="227,65,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
-                    <ComboBox Name="cbxRubros" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="189,95,0,0" Width="125" SelectionChanged="cbxRubros_SelectionChanged" Grid.Column="1">
+                    <ComboBox Name="cbxRubros" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="189,95,0,0" Width="125" Grid.Column="1">
                         <ComboBoxItem Content="Papeleria"/>
                         <ComboBoxItem Content="Tecnologia"/>
                         <ComboBoxItem Content="Mobiliario"/>

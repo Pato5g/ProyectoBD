@@ -10,6 +10,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Data.SqlClient;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace ProyectoBD.Interfaces
 {
@@ -35,58 +36,82 @@ namespace ProyectoBD.Interfaces
 
         private void Login(string nombreUsuario, string contrasena)
         {
+            if (string.IsNullOrWhiteSpace(nombreUsuario) || string.IsNullOrWhiteSpace(contrasena))
+            {
+                MessageBox.Show("Ingrese el nombre de usuario y la contraseña.");
+                return;
+            }
+
             try
             {
                 using (SqlConnection conexion = Conexion.ObtenerConexionSQLServer())
                 {
                     conexion.Open();
-                    string consulta = "SELECT UsuarioID, RolID FROM Usuario WHERE NombreUsuario = @NombreUsuario AND Activo = 1";
-                    using (SqlCommand comando = new SqlCommand(consulta, conexion))
+
+                    string consulta = @"
+                                        SELECT UsuarioID, RolID, ProveedorID
+                                        FROM Usuario
+                                        WHERE NombreUsuario = @NombreUsuario
+                                        AND PasswordHash = HASHBYTES('SHA2_256', @Contrasena)
+                                        AND Activo = 1";
+
+                    SqlCommand comando = new SqlCommand(consulta, conexion);
+                    comando.Parameters.AddWithValue("@NombreUsuario", nombreUsuario);
+                    comando.Parameters.Add("@Contrasena", System.Data.SqlDbType.VarChar, 100).Value = contrasena;
+
+                    using (SqlDataReader reader = comando.ExecuteReader())
                     {
-                        comando.Parameters.AddWithValue("@NombreUsuario", nombreUsuario);
-                        comando.Parameters.AddWithValue("@Activo", 1);
-                        int resultado = (int)comando.ExecuteScalar();
-                        if (resultado > 0)
-                        {
-                            MessageBox.Show("Inicio de sesión exitoso.");
-                            // Se abre la ventana correspondiente según el RolID del usuario
-                            if (resultado == 1)
-                            {
-                                // Se abre la ventana de Administrador del Sistema
-                                AdministradorDelSistema adminWindow = new AdministradorDelSistema();
-                                adminWindow.Show();
-                            }
-                            else if (resultado == 2)
-                            {
-                                // Se abre la ventana de Gestor de Compras
-                                GestorCompras gestorWindow = new GestorCompras();
-                                gestorWindow.Show();
-                            }
-                            else if (resultado == 3)
-                            {
-                                // Se abre la ventana de Administrador de Proveedores
-                                AdministradorProveedores adminProvWindow = new AdministradorProveedores();
-                                adminProvWindow.Show();
-                            }
-                            else if (resultado == 4)
-                            {
-                                // Se abre la ventana de Auditor
-                                Auditor auditorWindow = new Auditor();
-                                auditorWindow.Show();
-                            }
-                        }
-                        else if (resultado == 0)
-                            Close();
-                        else if (resultado != 0 && resultado >= 5)
+                        if (!reader.Read())
                         {
                             MessageBox.Show("Nombre de usuario o contraseña incorrectos.");
+                            return;
                         }
+
+                        int usuarioID = Convert.ToInt32(reader["UsuarioID"]);
+                        int rolID = Convert.ToInt32(reader["RolID"]);
+                        int? proveedorID = reader["ProveedorID"] == DBNull.Value ? null : Convert.ToInt32(reader["ProveedorID"]);
+
+                        MessageBox.Show("Inicio de sesión exitoso.");
+
+                        if (rolID == 1)
+                        {
+                            AdministradorDelSistema adminWindow = new AdministradorDelSistema();
+                            adminWindow.Show();
+                        }
+                        else if (rolID == 2)
+                        {
+                            GestorCompras gestorWindow = new GestorCompras();
+                            gestorWindow.Show();
+                        }
+                        else if (rolID == 3)
+                        {
+                            if (proveedorID == null)
+                            {
+                                MessageBox.Show("Este usuario no tiene un proveedor asociado.");
+                                return;
+                            }
+
+                            AdministradorProveedores adminProvWindow = new AdministradorProveedores(proveedorID.Value);
+                            adminProvWindow.Show();
+                        }
+                        else if (rolID == 4)
+                        {
+                            Auditor auditorWindow = new Auditor();
+                            auditorWindow.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("El usuario no tiene un rol válido.");
+                            return;
+                        }
+
+                        Close();
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al conectar a la base de datos SQL Server: {ex.Message}");
+                MessageBox.Show($"Error al iniciar sesión: {ex.Message}");
             }
         }
 

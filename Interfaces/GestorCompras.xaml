@@ -117,7 +117,8 @@
                               HorizontalAlignment="Left"
                               VerticalAlignment="Center"
                               Width="510"
-                              Height="241">
+                              Height="241"
+                              SelectionChanged="dtgPedidos_SelectionChanged">
 
                         <DataGrid.Columns>
 
@@ -156,6 +157,7 @@
             <TabItem Header="Orden de Compra">
                 <Grid>
 
+                    <!-- TÍTULO -->
                     <Label Content="Orden de Compra"
                            FontSize="24"
                            FontWeight="Bold"
@@ -163,97 +165,167 @@
                            VerticalAlignment="Top"
                            Margin="0,10,0,0"/>
 
+                    <!-- DESCRIPCIÓN -->
                     <Label Content="Descripción"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Top"
-                           Margin="29,104,0,0"/>
+                           Margin="29,20,0,0"/>
 
-                    <TextBox Name="txtDescripcion"
+                    <TextBox x:Name="txtDescripcion"
                              HorizontalAlignment="Left"
                              VerticalAlignment="Top"
-                             Margin="29,135,0,0"
+                             Margin="29,45,0,0"
                              Width="170"/>
 
-                    <Label Content="Fecha de Creacion"
+                    <!-- FECHA CREACIÓN -->
+                    <Label Content="Fecha de Creación"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Top"
-                           Margin="29,176,0,0"/>
+                           Margin="29,70,0,0"/>
 
-                    <DatePicker Name="dtpFechaCreacion"
+                    <DatePicker x:Name="dtpFechaCreacion"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Top"
-                                Margin="29,207,0,0"
+                                Margin="29,95,0,0"
                                 Width="170"/>
 
+                    <!-- FECHA LÍMITE -->
                     <Label Content="Fecha Límite"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Top"
-                           Margin="29,248,0,0"/>
+                           Margin="29,120,0,0"/>
 
-                    <DatePicker Name="dtpFechaLimite"
+                    <DatePicker x:Name="dtpFechaLimite"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Top"
-                                Margin="29,279,0,0"
+                                Margin="29,145,0,0"
                                 Width="170"/>
 
+                    <!-- TIPO -->
                     <Label Content="Tipo"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Top"
-                           Margin="29,320,0,0"/>
+                           Margin="29,170,0,0"/>
 
-                    <ComboBox Name="cmbTipo"
+                    <ComboBox x:Name="cmbTipo"
                               HorizontalAlignment="Left"
                               VerticalAlignment="Top"
-                              Margin="29,351,0,0"
-                              Width="170"/>
+                              Margin="29,195,0,0"
+                              Width="170">
 
+                        <ComboBoxItem Content="Grande"/>
+                        <ComboBoxItem Content="Chica"/>
+
+                    </ComboBox>
+
+                    <!-- SUBTIPO -->
                     <Label Content="Subtipo"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Top"
-                           Margin="29,392,0,0"/>
+                           Margin="29,220,0,0"/>
 
-                    <ComboBox Name="cmbSubtipo"
+                    <ComboBox x:Name="cmbSubtipo"
                               HorizontalAlignment="Left"
                               VerticalAlignment="Top"
-                              Margin="29,423,0,0"
-                              Width="170"/>
+                              Margin="29,245,0,0"
+                              Width="170">
 
+                        <ComboBoxItem Content="Urgente"/>
+                        <ComboBoxItem Content="Normal"/>
+
+                    </ComboBox>
+
+                    <Button Content="Seleccionar Pedidos"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="52,301,0,0"
+                            Width="124"
+                            Height="28"
+                            Click="Button_SeleccionarPedidos_Click"/>
+
+                    <!-- BOTONES -->
+                    <Button Content="Agregar"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="225,350,0,0"
+                            Width="80"
+                            Height="28"
+                            Click="Button_AgregarOrden_Click"/>
+
+                    <Button Content="Actualizar"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="376,350,0,0"
+                            Width="80"
+                            Height="28"
+                            Click="Button_ActualizarOrden_Click"/>
+
+                    <Button Content="Eliminar"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="527,350,0,0"
+                            Width="80"
+                            Height="28"
+                            Click="Button_EliminarOrden_Click"/>
+
+                    <Button Content="Limpiar"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="685,350,0,0"
+                            Width="80"
+                            Height="28"
+                            Click="Button_LimpiarOrden_Click"/>
+
+                    <Label Content="Pedidos Seleccionados"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="29,351,0,0"/>
+
+
+                    <!-- TABLA DE ÓRDENES -->
                     <DataGrid x:Name="dtgOrdenCompra"
                               AutoGenerateColumns="False"
-                              Margin="255,0,0,0"
                               HorizontalAlignment="Left"
-                              VerticalAlignment="Center"
-                              Width="510"
-                              Height="241">
+                              VerticalAlignment="Top"
+                              Margin="225,60,0,0"
+                              Width="540"
+                              Height="269"
+                              SelectionChanged="dtgOrdenCompra_SelectionChanged">
 
                         <DataGrid.Columns>
 
-                            <DataGridTextColumn Header="OrdenID"
+                            <DataGridTextColumn Header="ID"
                                                 Binding="{Binding ordenID}"
+                                                Width="45"/>
+
+                            <DataGridTextColumn Header="Descripción"
+                                                Binding="{Binding descripcion}"
                                                 Width="*"/>
 
-                            <DataGridTextColumn Header="Descripcion"
-                                                Binding="{Binding descripccion}"
-                                                Width="*"/>
-
-                            <DataGridTextColumn Header="Fecha Creacion"
+                            <DataGridTextColumn Header="Creación"
                                                 Binding="{Binding fecha_creacion}"
-                                                Width="*"/>
+                                                Width="90"/>
 
-                            <DataGridTextColumn Header="Fecha Limite Oferta"
+                            <DataGridTextColumn Header="Límite"
                                                 Binding="{Binding fecha_limite_oferta}"
-                                                Width="*"/>
+                                                Width="90"/>
 
-                            <DataGridTextColumn Header="Tipo Orden"
+                            <DataGridTextColumn Header="Tipo"
                                                 Binding="{Binding tipo_orden}"
-                                                Width="*"/>
+                                                Width="70"/>
 
-                            <DataGridTextColumn Header="Subtipo Orden"
+                                        <DataGridTextColumn Header="Subtipo"
                                                 Binding="{Binding subtipo_orden}"
-                                                Width="*"/>
+                                                Width="70"/>
 
                         </DataGrid.Columns>
+
                     </DataGrid>
+                    <TextBox x:Name="txtPedidosSeleccionados"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Margin="164,355,0,0"
+                        Width="26"/>
 
                 </Grid>
             </TabItem>
